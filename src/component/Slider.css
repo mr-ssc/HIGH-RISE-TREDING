@@ -30,6 +30,7 @@
   height: 50px;
   border-radius: 50%;
   transition: all 0.3s ease;
+  display: none;
 }
 
 .swiper-button-next:after,
