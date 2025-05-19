@@ -1,288 +1,211 @@
-/* Base Styles */
+/* Navbar Base Styles */
 .navbar {
+  background-color: #fff;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(3, 20, 46, 0.95); /* #03142e with opacity */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.4s ease;
   z-index: 1000;
-  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .navbar.scrolled {
-  background-color: rgba(3, 20, 46, 0.98); /* Slightly more opaque when scrolled */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  padding: 0.5rem 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 5px 0;
 }
 
 .navbar-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
 }
 
+/* Logo */
 .navbar-logo img {
-  height: 80px;
-  width: 100px;
-  transition: all 0.3s ease;
- 
-}
-
-.navbar.scrolled .navbar-logo img {
   height: 40px;
+  transition: all 0.3s ease;
 }
 
 /* Navigation Links */
-.navbar-links ul {
+.navbar-links {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  align-items: center;
 }
 
 .navbar-links li {
+  margin: 0 15px;
   position: relative;
-  margin-left: 2rem;
 }
 
 .navbar-links a {
-  color: #fff; /* White text */
+  color: #000;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 16px;
+  padding: 10px 0;
   position: relative;
   transition: all 0.3s ease;
-  padding: 0.5rem 0;
+  display: inline-block;
 }
 
 .navbar-links a:hover {
-  color: #4dabf7; /* Light blue hover */
-}
-
-.navbar-links a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #4dabf7; /* Light blue underline */
-  transition: width 0.3s ease;
-}
-
-.navbar-links a:hover::after {
-  width: 100%;
+  color: #4a6bff;
 }
 
 .navbar-links a.active {
-  color: #4dabf7; /* Light blue for active link */
+  color: #4a6bff;
+  font-weight: 600;
 }
 
-.navbar-links a.active::after {
-  width: 100%;
-}
-
-/* Dropdown Styles */
-.dropdown {
-  position: relative;
-  cursor: pointer;
-}
-
-.dropdown-arrow {
-  font-size: 0.6rem;
-  margin-left: 0.3rem;
-  display: inline-block;
-  transition: transform 0.3s ease;
-  color: #fff;
-}
-
-.dropdown:hover .dropdown-arrow {
-  transform: rotate(180deg);
-  color: #4dabf7;
-}
-
-.dropdown-content {
+.underline {
   position: absolute;
-  top: 100%;
-  left: -1rem;
-  background-color: #fff;
-  min-width: 220px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  border-radius: 0.5rem;
-  z-index: 1;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-  padding: 0.5rem 0;
-}
-
-.dropdown-content.open {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 0.8rem 1.5rem;
-  color: #333;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
-}
-
-.dropdown-content a:hover {
-  color: #0066cc;
-  background-color: #f1f3f5;
-  padding-left: 1.8rem;
-}
-
-/* Mobile Menu Icon */
-.mobile-menu-icon {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 24px;
-  height: 18px;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.mobile-menu-icon span {
-  display: block;
+  bottom: 0;
+  left: 0;
   width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #4a6bff, #a855f7);
+  border-radius: 3px;
+}
+
+/* Search */
+.navbar-search {
+  margin-left: 20px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 20px;
+  padding: 5px 15px;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  padding: 5px;
+}
+
+.search-box svg {
+  cursor: pointer;
+  color: #666;
+}
+
+/* Mobile Menu Button (Hidden on Desktop) */
+.mobile-menu-btn {
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger {
+  width: 25px;
+  height: 20px;
+  position: relative;
+}
+
+.hamburger span {
+  display: block;
+  position: absolute;
   height: 2px;
-  background-color: #fff;
+  width: 100%;
+  background: #000;
+  border-radius: 2px;
+  opacity: 1;
+  left: 0;
   transition: all 0.3s ease;
-  transform-origin: left center;
 }
 
-.mobile-menu-icon.open span:nth-child(1) {
-  transform: rotate(45deg) translateY(-2px);
-  background-color: #fff;
+.hamburger span:nth-child(1) {
+  top: 0;
 }
 
-.mobile-menu-icon.open span:nth-child(2) {
+.hamburger span:nth-child(2),
+.hamburger span:nth-child(3) {
+  top: 9px;
+}
+
+.hamburger span:nth-child(4) {
+  top: 18px;
+}
+
+.hamburger.open span:nth-child(1),
+.hamburger.open span:nth-child(4) {
   opacity: 0;
 }
 
-.mobile-menu-icon.open span:nth-child(3) {
-  transform: rotate(-45deg) translateY(2px);
-  background-color: #fff;
+.hamburger.open span:nth-child(2) {
+  transform: rotate(45deg);
 }
 
-/* Mobile Menu */
-@media (max-width: 768px) {
-  .navbar-container {
-    padding: 0 1.5rem;
-  }
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
 
-  .mobile-menu-icon {
-    display: flex;
-  }
+/* Mobile Menu (Hidden on Desktop) */
+.mobile-menu {
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
 
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu li {
+  padding: 15px 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-menu a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu a.active {
+  color: #4a6bff;
+  font-weight: 600;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
   .navbar-links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 300px;
-    height: 100vh;
-    background-color: #03142e;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-    transition: right 0.4s ease;
-    padding: 6rem 2rem 2rem;
-    overflow-y: auto;
+    display: none;
   }
-
-  .navbar-links.active {
-    right: 0;
-  }
-
-  .navbar-links ul {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar-links li {
-    margin: 1rem 0;
-    width: 100%;
-  }
-
-  .navbar-links a {
-    font-size: 1.1rem;
-    padding: 0.5rem 0;
+  
+  .mobile-menu-btn {
     display: block;
-    width: 100%;
   }
-
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    padding: 0;
-    margin-top: 0.5rem;
-    margin-left: 1rem;
-    border-left: 2px solid rgba(255, 255, 255, 0.1);
-    background-color: transparent;
-  }
-
-  .dropdown-content.open {
-    max-height: 1000px;
-    padding: 0.5rem 0 0.5rem 1rem;
-  }
-
-  .dropdown-arrow {
-    transform: rotate(-90deg);
-  }
-
-  .dropdown-content a {
-    padding: 0.6rem 1rem;
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.8);
-  }
-
-  .dropdown-content a:hover {
-    padding-left: 1.2rem;
-    color: #4dabf7;
-    background-color: transparent;
+  
+  .navbar-search {
+    margin-left: auto;
   }
 }
 
-/* Animation for dropdown items */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
+@media (max-width: 576px) {
+  .navbar-container {
+    padding: 10px 15px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .navbar-logo img {
+    height: 30px;
+  }
+  
+  .search-box {
+    width: 150px;
   }
 }
-
-.dropdown-content.open a {
-  animation: fadeIn 0.3s ease forwards;
-}
-
-.dropdown-content a:nth-child(1) { animation-delay: 0.1s; }
-.dropdown-content a:nth-child(2) { animation-delay: 0.15s; }
-.dropdown-content a:nth-child(3) { animation-delay: 0.2s; }
-.dropdown-content a:nth-child(4) { animation-delay: 0.25s; }
-.dropdown-content a:nth-child(5) { animation-delay: 0.3s; }
-.dropdown-content a:nth-child(6) { animation-delay: 0.35s; }
-.dropdown-content a:nth-child(7) { animation-delay: 0.4s; }
-.dropdown-content a:nth-child(8) { animation-delay: 0.45s; }
-.dropdown-content a:nth-child(9) { animation-delay: 0.5s; }
-.dropdown-content a:nth-child(10) { animation-delay: 0.55s; }

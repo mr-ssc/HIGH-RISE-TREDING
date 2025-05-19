@@ -1,158 +1,169 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
-import logo from "../component/Img/logo.png";
-import { FaDownload, FaHeadset } from "react-icons/fa6";
-import { FaHome, FaInfoCircle } from "react-icons/fa";
-import { AiOutlineProduct } from "react-icons/ai";
+import { FaSearch, FaTimes } from "react-icons/fa";
+import { motion } from "framer-motion";
+import logo from './Img/logo.png';
 
 const Navbar = () => {
-  const [isProductsOpen, setIsProductsOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-
-  // Check if current route is a product page
-  const isProductPage = [
-    "/mechanical-products",
-    "/macoga-expansion-joints",
-    "/electrical-products",
-    "/oil-gas-products",
-    "/tubefit",
-    "/valve-products",
-    "/plumbing-materials",
-    "/safety-items",
-    "/sanitary-ware",
-    "/plywood-items"
-  ].some(route => location.pathname.startsWith(route));
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    // Close mobile menu when route changes
-    setIsMobileMenuOpen(false);
-    document.body.style.overflow = "auto";
-  }, [location.pathname]);
-
-  const toggleProducts = () => {
-    setIsProductsOpen(!isProductsOpen);
+  const handleLinkClick = (link) => {
+    setActiveLink(link);
+    setMobileMenuOpen(false);
   };
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-    document.body.style.overflow = isMobileMenuOpen ? "auto" : "hidden";
+  const toggleSearch = () => {
+    setSearchOpen(!searchOpen);
   };
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.target.closest(".dropdown") && isProductsOpen) {
-        setIsProductsOpen(false);
-      }
-    };
-
-    if (isProductsOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isProductsOpen]);
+  const navLinks = [
+    { id: "home", name: "Home" },
+    { id: "about", name: "About" },
+    { id: "brand", name: "Our Brand" },
+    { id: "products", name: "Our Products" },
+    { id: "indestrice", name: "Indestrice" },
+    { id: "download", name: "Download" },
+    { id: "contact", name: "Contact" },
+  ];
 
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+    <motion.nav 
+      className={`navbar ${scrolled ? "scrolled" : ""}`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
+    >
       <div className="navbar-container">
         <div className="navbar-logo">
-          <Link to="/">
-            <img src={logo} alt="Company Logo" />
-          </Link>
+          <a href="/">
+            <motion.img 
+              src={logo} 
+              alt="Logo" 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            />
+          </a>
         </div>
 
-        <div
-          className={`mobile-menu-icon ${isMobileMenuOpen ? "open" : ""}`}
-          onClick={toggleMobileMenu}
-          aria-label="Toggle menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <div className={`navbar-links ${isMobileMenuOpen ? "active" : ""}`}>
-          <ul>
-            <li>
-              <Link
-                to="/"
-                className={location.pathname === "/" ? "active" : ""}
-              >
-                <FaHome /> Home
-              </Link>
-            </li>
-
-            <li
-              className="dropdown"
-              onMouseEnter={() => !isMobileMenuOpen && setIsProductsOpen(true)}
-              onMouseLeave={() => !isMobileMenuOpen && setIsProductsOpen(false)}
+        {/* Desktop Navigation */}
+        <ul className="navbar-links">
+          {navLinks.map((link) => (
+            <motion.li 
+              key={link.id}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <span
-                onClick={toggleProducts}
-                className={`dropdown-toggle ${isProductPage ? "active" : ""}`}
-                aria-haspopup="true"
-                aria-expanded={isProductsOpen}
+              <a 
+                href={`#${link.id}`} 
+                className={activeLink === link.id ? "active" : ""}
+                onClick={() => handleLinkClick(link.id)}
               >
-                <AiOutlineProduct />
-                Products <span className="dropdown-arrow">▼</span>
-              </span>
-              <div className={`dropdown-content ${isProductsOpen ? "open" : ""}`}>
-                <Link to="/mechanical-products">Mechanical Products</Link>
-                <Link to="/macoga-expansion-joints">Macoga - Expansion Joints</Link>
-                <Link to="/electrical-products">Electrical Products</Link>
-                <Link to="/oil-gas-products">Oil and Gas Products</Link>
-                <Link to="/tubefit">Tubefit</Link>
-                <Link to="/valve-products">Valve Products</Link>
-                <Link to="/plumbing-materials">Plumbing Materials</Link>
-                <Link to="/safety-items">Safety Items</Link>
-                <Link to="/sanitary-ware">Sanitary Ware</Link>
-                <Link to="/plywood-items">Plywood Items</Link>
-              </div>
-            </li>
+                {link.name}
+                {activeLink === link.id && (
+                  <motion.span 
+                    className="underline"
+                    layoutId="underline"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+              </a>
+            </motion.li>
+          ))}
+        </ul>
 
-            <li>
-              <Link
-                to="/about"
-                className={location.pathname === "/about" ? "active" : ""}
-              >
-                <FaInfoCircle /> About
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/contact"
-                className={location.pathname === "/contact" ? "active" : ""}
-              >
-                <FaHeadset /> Contact
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/download"
-                className={location.pathname === "/download" ? "active" : ""}
-              >
-                <FaDownload /> Download
-              </Link>
-            </li>
-          </ul>
+        {/* Mobile Menu Button */}
+        <div 
+          className="mobile-menu-btn"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          <motion.div 
+            className={`hamburger ${mobileMenuOpen ? "open" : ""}`}
+            animate={mobileMenuOpen ? "open" : "closed"}
+            variants={{
+              closed: { rotate: 0 },
+              open: { rotate: 180 }
+            }}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </motion.div>
+        </div>
+
+        {/* Search */}
+        <div className="navbar-search">
+          {searchOpen ? (
+            <motion.div 
+              className="search-box"
+              initial={{ opacity: 0, width: 0 }}
+              animate={{ opacity: 1, width: 200 }}
+              exit={{ opacity: 0, width: 0 }}
+            >
+              <input type="text" placeholder="Search..." />
+              <FaTimes onClick={toggleSearch} />
+            </motion.div>
+          ) : (
+            <motion.a 
+              href="#search" 
+              onClick={toggleSearch}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <FaSearch />
+            </motion.a>
+          )}
         </div>
       </div>
-    </nav>
+
+      {/* Mobile Navigation */}
+      <motion.div 
+        className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ 
+          height: mobileMenuOpen ? "auto" : 0,
+          opacity: mobileMenuOpen ? 1 : 0
+        }}
+        transition={{ type: "spring", stiffness: 100 }}
+      >
+        <ul>
+          {navLinks.map((link) => (
+            <motion.li 
+              key={link.id}
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ 
+                x: mobileMenuOpen ? 0 : -20,
+                opacity: mobileMenuOpen ? 1 : 0
+              }}
+              transition={{ delay: 0.1 * navLinks.indexOf(link) }}
+            >
+              <a 
+                href={`#${link.id}`} 
+                className={activeLink === link.id ? "active" : ""}
+                onClick={() => handleLinkClick(link.id)}
+              >
+                {link.name}
+              </a>
+            </motion.li>
+          ))}
+        </ul>
+      </motion.div>
+    </motion.nav>
   );
 };
 
