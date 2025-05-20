@@ -1,0 +1,225 @@
+/* Brand.css */
+
+/* Base Styles */
+.brand-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.brand-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+  position: relative;
+  margin-top: 6%;
+}
+
+.brand-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #0077b6;
+  margin: 0.5rem auto;
+}
+
+.brand-hero-img {
+  text-align: center;
+  
+  margin-bottom: 3rem;
+}
+
+.brand-hero-img img {
+  max-width: 100%;
+  width: fit-content;
+  height: fit-content;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Brand Grid */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.brand-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.brand-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.brand-img-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.brand-img {
+  transition: transform 0.5s ease;
+  padding: 20px;
+  height: 170px;
+}
+
+.brand-card:hover .brand-img {
+  transform: scale(1.05);
+}
+
+.brand-content {
+  padding: 1.5rem;
+}
+
+.brand-name {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #0077b6;
+}
+
+.brand-subtitle {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+.brand-description {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.brand-link-text {
+  color: #0077b6;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: color 0.3s ease;
+}
+
+.brand-card:hover .brand-link-text {
+  color: #ff6b35;
+}
+
+/* See All Button */
+.see-all-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.see-all-btn {
+  background: #0077b6;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 119, 182, 0.3);
+}
+
+.see-all-btn:hover {
+  background: #ff6b35;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 107, 53, 0.4);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .brand-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+}
+
+@media (max-width: 768px) {
+  .brand-title {
+    font-size: 2rem;
+    margin-top: 7%;
+  }
+  
+  .brand-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .brand-title{
+    margin-top: 10%;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .brand-container {
+    padding: 1rem;
+  }
+  
+  .brand-title {
+    font-size: 1.8rem;
+    margin-top: 20%;
+  }
+  
+  .brand-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .brand-img-container {
+    height: 180px;
+  }
+}
+
+/* Animation for cards when they appear */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.brand-card {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+/* Create staggered animation */
+.brand-card:nth-child(1) { animation-delay: 0.1s; }
+.brand-card:nth-child(2) { animation-delay: 0.2s; }
+.brand-card:nth-child(3) { animation-delay: 0.3s; }
+.brand-card:nth-child(4) { animation-delay: 0.4s; }
+.brand-card:nth-child(5) { animation-delay: 0.5s; }
+.brand-card:nth-child(6) { animation-delay: 0.6s; }
+.brand-card:nth-child(7) { animation-delay: 0.7s; }
+.brand-card:nth-child(8) { animation-delay: 0.8s; }
+.brand-card:nth-child(9) { animation-delay: 0.9s; }
+.brand-card:nth-child(10) { animation-delay: 1.0s; }
+.brand-card:nth-child(11) { animation-delay: 1.1s; }
+.brand-card:nth-child(12) { animation-delay: 1.2s; }
+.brand-card:nth-child(13) { animation-delay: 1.3s; }
+.brand-card:nth-child(14) { animation-delay: 1.4s; }
+.brand-card:nth-child(15) { animation-delay: 1.5s; }
