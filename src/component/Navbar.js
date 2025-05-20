@@ -1,35 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
-import { FaSearch, FaTimes } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import logo from './Img/logo.png';
+import { FaTimes } from "react-icons/fa"; // Import close icon
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
+      setScrolled(window.scrollY > 10);
+    };
+
+    const handleClickOutside = (event) => {
+      if (menuRef.current && 
+          !menuRef.current.contains(event.target) && 
+          !buttonRef.current.contains(event.target)) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    const handleResize = () => {
+      if (window.innerWidth > 992) {
+        setMobileMenuOpen(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    document.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
     setMobileMenuOpen(false);
-  };
-
-  const toggleSearch = () => {
-    setSearchOpen(!searchOpen);
   };
 
   const navLinks = [
@@ -57,6 +71,7 @@ const Navbar = () => {
               alt="Logo" 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
             />
           </a>
         </div>
@@ -68,6 +83,7 @@ const Navbar = () => {
               key={link.id}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
             >
               <a 
                 href={`#${link.id}`} 
@@ -79,7 +95,20 @@ const Navbar = () => {
                   <motion.span 
                     className="underline"
                     layoutId="underline"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    initial={{ background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)' }}
+                    animate={{ 
+                      background: [
+                        'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+                        'linear-gradient(90deg, #8b5cf6, #3b82f6)',
+                        'linear-gradient(90deg, #3b82f6, #8b5cf6)'
+                      ] 
+                    }}
+                    transition={{ 
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "linear",
+                      layout: { type: "spring", stiffness: 300, damping: 30 }
+                    }}
                   />
                 )}
               </a>
@@ -88,81 +117,118 @@ const Navbar = () => {
         </ul>
 
         {/* Mobile Menu Button */}
-        <div 
-          className="mobile-menu-btn"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          <motion.div 
-            className={`hamburger ${mobileMenuOpen ? "open" : ""}`}
-            animate={mobileMenuOpen ? "open" : "closed"}
-            variants={{
-              closed: { rotate: 0 },
-              open: { rotate: 180 }
-            }}
+        <div className="mobile-menu-wrapper" ref={buttonRef}>
+          <div 
+            className="mobile-menu-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-expanded={mobileMenuOpen}
+            aria-label="Menu"
           >
-            <span></span>
-            <span></span>
-            <span></span>
-          </motion.div>
-        </div>
-
-        {/* Search */}
-        <div className="navbar-search">
-          {searchOpen ? (
             <motion.div 
-              className="search-box"
-              initial={{ opacity: 0, width: 0 }}
-              animate={{ opacity: 1, width: 200 }}
-              exit={{ opacity: 0, width: 0 }}
+              className={`hamburger ${mobileMenuOpen ? "open" : ""}`}
+              animate={mobileMenuOpen ? "open" : "closed"}
+              transition={{ duration: 0.3 }}
             >
-              <input type="text" placeholder="Search..." />
-              <FaTimes onClick={toggleSearch} />
+              <motion.span
+                variants={{
+                  closed: { rotate: 0, y: 0 },
+                  open: { rotate: 45, y: 7 }
+                }}
+              />
+              <motion.span
+                variants={{
+                  closed: { opacity: 1 },
+                  open: { opacity: 0 }
+                }}
+              />
+              <motion.span
+                variants={{
+                  closed: { rotate: 0, y: 0 },
+                  open: { rotate: -45, y: -7 }
+                }}
+              />
             </motion.div>
-          ) : (
-            <motion.a 
-              href="#search" 
-              onClick={toggleSearch}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FaSearch />
-            </motion.a>
-          )}
+          </div>
         </div>
       </div>
 
       {/* Mobile Navigation */}
-      <motion.div 
-        className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ 
-          height: mobileMenuOpen ? "auto" : 0,
-          opacity: mobileMenuOpen ? 1 : 0
-        }}
-        transition={{ type: "spring", stiffness: 100 }}
-      >
-        <ul>
-          {navLinks.map((link) => (
-            <motion.li 
-              key={link.id}
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ 
-                x: mobileMenuOpen ? 0 : -20,
-                opacity: mobileMenuOpen ? 1 : 0
-              }}
-              transition={{ delay: 0.1 * navLinks.indexOf(link) }}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            <motion.div 
+              className="mobile-menu-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            <motion.div 
+              ref={menuRef}
+              className="mobile-menu-content"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: "spring", stiffness: 100, damping: 20 }}
             >
-              <a 
-                href={`#${link.id}`} 
-                className={activeLink === link.id ? "active" : ""}
-                onClick={() => handleLinkClick(link.id)}
+              {/* Close Button */}
+              <motion.button
+                className="mobile-close-btn"
+                onClick={() => setMobileMenuOpen(false)}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
               >
-                {link.name}
-              </a>
-            </motion.li>
-          ))}
-        </ul>
-      </motion.div>
+                <FaTimes size={24} />
+              </motion.button>
+
+              <ul>
+                {navLinks.map((link) => (
+                  <motion.li 
+                    key={link.id}
+                    initial={{ x: 20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: 20, opacity: 0 }}
+                    transition={{ 
+                      delay: 0.1 * navLinks.indexOf(link),
+                      duration: 0.3
+                    }}
+                  >
+                    <a 
+                      href={`#${link.id}`} 
+                      className={activeLink === link.id ? "active" : ""}
+                      onClick={() => handleLinkClick(link.id)}
+                    >
+                      {link.name}
+                      {activeLink === link.id && (
+                        <motion.span 
+                          className="mobile-underline"
+                          initial={{ background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)' }}
+                          animate={{ 
+                            background: [
+                              'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+                              'linear-gradient(90deg, #8b5cf6, #3b82f6)',
+                              'linear-gradient(90deg, #3b82f6, #8b5cf6)'
+                            ] 
+                          }}
+                          transition={{ 
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "linear"
+                          }}
+                        />
+                      )}
+                    </a>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };
