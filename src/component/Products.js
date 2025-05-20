@@ -1,8 +1,16 @@
 import React from 'react'
+import Navbar from './Navbar'
+import Footer from './Footer'
 
 const Products = () => {
   return (
-    <div>Products</div>
+    <>
+
+      <Navbar />
+      <Footer />
+
+
+    </>
   )
 }
 

@@ -53,7 +53,7 @@ const Navbar = () => {
     about: { path: "/About", name: "About" },
     brand: { path: "/Brand", name: "Our Brand" },
     products: { path: "/Products", name: "Our Products" },
-    indestrice: { path: "/-Indestrice", name: "Indestrice" },
+    indestrice: { path: "/Indestrice", name: "Indestrice" },
     download: { path: "/download", name: "Download" },
     contact: { path: "/contact", name: "Contact" }
   };
