@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 
-const Indestrice = () => {
+const Industries = () => {
   return (
     <>
 
@@ -15,4 +15,4 @@ const Indestrice = () => {
   )
 }
 
-export default Indestrice
+export default Industries

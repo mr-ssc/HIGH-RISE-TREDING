@@ -9,7 +9,7 @@ import Download from './component/Download'
 import About from './component/About'
 import Brand from './component/Brand'
 import Products from './component/Products'
-import Indestrice from './component/Indestrice'
+import Industries from './component/Industries'
 
 
 
@@ -27,7 +27,7 @@ function App() {
         <Route path='/About' element={<About/>}></Route>
         <Route path='/Brand' element={<Brand/>}></Route>
         <Route path='/Products' element={<Products/>}></Route>
-        <Route path='/Indestrice' element={<Indestrice/>}></Route>
+        <Route path='/Industries' element={<Industries/>}></Route>
 
 
         
