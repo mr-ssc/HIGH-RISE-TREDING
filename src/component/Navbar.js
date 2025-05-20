@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "./Navbar.css";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from './Img/logo.png';
-import { FaTimes } from "react-icons/fa"; // Import close icon
+import { FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("home");
@@ -46,15 +47,16 @@ const Navbar = () => {
     setMobileMenuOpen(false);
   };
 
-  const navLinks = [
-    { id: "home", name: "Home" },
-    { id: "about", name: "About" },
-    { id: "brand", name: "Our Brand" },
-    { id: "products", name: "Our Products" },
-    { id: "indestrice", name: "Indestrice" },
-    { id: "download", name: "Download" },
-    { id: "contact", name: "Contact" },
-  ];
+  // Manual navLinks data
+  const navLinks = {
+    home: { path: "/", name: "Home" },
+    about: { path: "/About", name: "About" },
+    brand: { path: "/Brand", name: "Our Brand" },
+    products: { path: "/Products", name: "Our Products" },
+    indestrice: { path: "/-Indestrice", name: "Indestrice" },
+    download: { path: "/download", name: "Download" },
+    contact: { path: "/contact", name: "Contact" }
+  };
 
   return (
     <motion.nav 
@@ -65,7 +67,7 @@ const Navbar = () => {
     >
       <div className="navbar-container">
         <div className="navbar-logo">
-          <a href="/">
+          <Link to="/">
             <motion.img 
               src={logo} 
               alt="Logo" 
@@ -73,25 +75,25 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
             />
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
         <ul className="navbar-links">
-          {navLinks.map((link) => (
+          {Object.entries(navLinks).map(([key, link]) => (
             <motion.li 
-              key={link.id}
+              key={key}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
-              <a 
-                href={`#${link.id}`} 
-                className={activeLink === link.id ? "active" : ""}
-                onClick={() => handleLinkClick(link.id)}
+              <Link 
+                to={link.path}
+                className={activeLink === key ? "active" : ""}
+                onClick={() => handleLinkClick(key)}
               >
                 {link.name}
-                {activeLink === link.id && (
+                {activeLink === key && (
                   <motion.span 
                     className="underline"
                     layoutId="underline"
@@ -111,7 +113,7 @@ const Navbar = () => {
                     }}
                   />
                 )}
-              </a>
+              </Link>
             </motion.li>
           ))}
         </ul>
@@ -186,24 +188,24 @@ const Navbar = () => {
               </motion.button>
 
               <ul>
-                {navLinks.map((link) => (
+                {Object.entries(navLinks).map(([key, link]) => (
                   <motion.li 
-                    key={link.id}
+                    key={key}
                     initial={{ x: 20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: 20, opacity: 0 }}
                     transition={{ 
-                      delay: 0.1 * navLinks.indexOf(link),
+                      delay: 0.1 * Object.keys(navLinks).indexOf(key),
                       duration: 0.3
                     }}
                   >
-                    <a 
-                      href={`#${link.id}`} 
-                      className={activeLink === link.id ? "active" : ""}
-                      onClick={() => handleLinkClick(link.id)}
+                    <Link 
+                      to={link.path}
+                      className={activeLink === key ? "active" : ""}
+                      onClick={() => handleLinkClick(key)}
                     >
                       {link.name}
-                      {activeLink === link.id && (
+                      {activeLink === key && (
                         <motion.span 
                           className="mobile-underline"
                           initial={{ background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)' }}
@@ -221,7 +223,7 @@ const Navbar = () => {
                           }}
                         />
                       )}
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>

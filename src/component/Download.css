@@ -1,0 +1,201 @@
+/* Base Styles */
+.download-page {
+  padding: 2rem;
+  min-height: calc(100vh - 120px); /* Adjust based on your header/footer height */
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+  padding-top: 12%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: #3498db;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin-bottom: 3rem;
+}
+
+.pdf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.pdf-card {
+  perspective: 1000px;
+  height: 300px;
+}
+
+.pdf-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.pdf-card:hover .pdf-card-inner {
+  transform: rotateY(180deg);
+}
+
+.pdf-card-front, .pdf-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: white;
+}
+
+.pdf-card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+  color: white;
+}
+
+.pdf-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.pdf-card:hover .pdf-icon {
+  transform: scale(1.1);
+}
+
+.pdf-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.pdf-description {
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.5rem;
+  background: white;
+  color: #3498db;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.download-btn:hover {
+  background: #f8f9fa;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.download-btn .btn-icon {
+  margin-left: 8px;
+  transition: transform 0.3s;
+}
+
+.download-btn:hover .btn-icon {
+  transform: translateY(3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .download-page {
+    padding: 1rem;
+    padding-top: 12%;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .pdf-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .pdf-card {
+    height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .download-page{
+    padding-top: 18%;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .download-page{
+    padding-top: 25%;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  .pdf-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pdf-card-inner {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Animation for page load */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pdf-catalog {
+  animation: fadeIn 0.6s ease-out forwards;
+}

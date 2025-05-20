@@ -5,6 +5,11 @@ import Navbar from './component/Navbar'
 import Slider from './component/Slider'
 import Footer from './component/Footer'
 import Contact from './component/Contact'
+import Download from './component/Download'
+import About from './component/About'
+import Brand from './component/Brand'
+import Products from './component/Products'
+import Indestrice from './component/Indestrice'
 
 
 
@@ -18,6 +23,11 @@ function App() {
         <Route path='/Navbar' element={<Navbar />}></Route>
         <Route path='Slider' element={<Slider/>}></Route>
         <Route path='/Contact' element={<Contact/>}></Route>
+        <Route path='/Download' element={<Download/>}></Route>
+        <Route path='/About' element={<About/>}></Route>
+        <Route path='/Brand' element={<Brand/>}></Route>
+        <Route path='/Products' element={<Products/>}></Route>
+        <Route path='/Indestrice' element={<Indestrice/>}></Route>
 
 
         
