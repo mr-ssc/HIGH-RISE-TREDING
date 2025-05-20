@@ -143,7 +143,6 @@
 @media (max-width: 768px) {
   .download-page {
     padding: 1rem;
-    padding-top: 12%;
   }
   
   .section-title {
@@ -160,23 +159,13 @@
   }
 }
 
-@media (max-width: 768px) {
-
-  .download-page{
-    padding-top: 18%;
-  }
-
-}
 
 @media (max-width: 480px) {
   .section-title {
     font-size: 1.8rem;
   }
 
-  .download-page{
-    padding-top: 25%;
-  }
-  
+ 
   .section-subtitle {
     font-size: 1rem;
   }

@@ -13,7 +13,6 @@
   margin-bottom: 2rem;
   color: #333;
   position: relative;
-  margin-top: 6%;
 }
 
 .brand-title::after {
@@ -154,7 +153,6 @@
 @media (max-width: 768px) {
   .brand-title {
     font-size: 2rem;
-    margin-top: 7%;
   }
   
   .brand-grid {
@@ -163,13 +161,6 @@
   }
 }
 
-@media (max-width: 600px) {
-
-  .brand-title{
-    margin-top: 10%;
-  }
-
-}
 
 @media (max-width: 480px) {
   .brand-container {
@@ -178,7 +169,6 @@
   
   .brand-title {
     font-size: 1.8rem;
-    margin-top: 20%;
   }
   
   .brand-grid {
