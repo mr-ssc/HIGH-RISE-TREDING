@@ -17,7 +17,7 @@ const industriesData = [
     image: i1,
     link: '/Products',
     reverse: false,
-    subdescription: '➡️ Viwe More',
+    subdescription: '➡️ View More',
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const industriesData = [
     image: i2,
     link: '/Products',
     reverse: true,
-    subdescription: '➡️ Viwe More',
+    subdescription: '➡️ View More',
 
   },
   {
@@ -38,7 +38,7 @@ const industriesData = [
     image: i3,
     link: '/Products',
     reverse: false,
-    subdescription: '➡️ Viwe More',
+    subdescription: '➡️ View More',
 
   },
   {
@@ -49,7 +49,7 @@ const industriesData = [
     image: i4,
     link: '/Products',
     reverse: true,
-    subdescription: '➡️ Viwe More',
+    subdescription: '➡️ View More',
 
   },
 ];
