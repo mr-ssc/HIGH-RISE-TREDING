@@ -10,6 +10,14 @@ import About from './component/About'
 import Brand from './component/Brand'
 import Products from './component/Products'
 import Industries from './component/Industries'
+import CompanyOverview from "./component/CompanyOverview"
+import CompanyInfo from "./component/CompanyInfo"
+import AboutTestimonials from "./component/AboutTestimonials"
+import CustomerSetisfaction from "./component/CustomerSetisfaction"
+import EsteemadeBrand from "./component/EsteemadeBrand"
+import InquirePage from "./component/InquirePage"
+
+
 
 
 
@@ -28,6 +36,12 @@ function App() {
         <Route path='/Brand' element={<Brand/>}></Route>
         <Route path='/Products' element={<Products/>}></Route>
         <Route path='/Industries' element={<Industries/>}></Route>
+        <Route path='/CompanyOverview' element={<CompanyOverview/>}></Route>
+        <Route path='/CompanyInfo' element={<CompanyInfo/>}></Route>
+        <Route path='/AboutTestimonials' element={<AboutTestimonials/>}></Route>
+        <Route path='/CustomerSetisfaction' element={<CustomerSetisfaction/>}></Route>
+        <Route path='/EsteemadeBrand' element={<EsteemadeBrand/>}></Route>
+        <Route path='/InquirePage' element={<InquirePage/>}></Route>
 
 
         

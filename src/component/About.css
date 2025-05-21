@@ -1,0 +1,141 @@
+.about-container {
+  background-image: url("./Img/chemical-plants-vibrant-red-tanks-stand-out-against-tangle-pipes-steel-structures.jpg");
+  padding: 100px 0px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.about-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 324px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Adjust opacity */
+  z-index: 1;
+}
+
+.about-container > * {
+  position: relative;
+  z-index: 2;
+}
+.title {
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+  line-height: 50px;
+  font-weight: 600;
+  letter-spacing: 0px;
+  color: #fff;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.comapny-overview {
+  width: 100%;
+  padding: 80px 0px;
+  color: #fff;
+  background-color: #4c4c4c;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.company-info {
+  width: 100%;
+  padding: 80px 0px;
+  padding-bottom: 40px;
+  color: #fff;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.about-testimonial {
+  width: 100%;
+  padding: 80px 0px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.esteemade-brand-container {
+  width: 100%;
+  padding: 80px 0px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.inquire-container {
+  width: 100%;
+  padding: 80px 0px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+/* ---------- Responsive Styling ---------- */
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 42px;
+    line-height: 48px;
+  }
+
+  .comapny-overview,
+  .company-info,
+  .about-testimonial,
+  .esteemade-brand-container,
+  .inquire-container {
+    padding: 60px 20px;
+  }
+
+  .about-container {
+    padding: 80px 0px;
+  }
+
+  .about-container::before {
+    height: 280px;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .title {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .comapny-overview,
+  .company-info,
+  .about-testimonial,
+  .esteemade-brand-container,
+  .inquire-container {
+    padding: 50px 16px;
+  }
+
+  .about-container {
+    padding: 60px 0px;
+  }
+
+  .about-container::before {
+    height: 240px;
+  }
+}
+
+/* Small Mobile (≤480px) */
+@media (max-width: 480px) {
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .comapny-overview,
+  .company-info,
+  .about-testimonial,
+  .esteemade-brand-container,
+  .inquire-container {
+    padding: 40px 12px;
+  }
+
+  .about-container {
+    padding: 50px 0px;
+  }
+
+  .about-container::before {
+    height: 200px;
+  }
+}

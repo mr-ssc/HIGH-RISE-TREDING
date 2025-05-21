@@ -1,0 +1,198 @@
+/* General Layout */
+.esteemade-brand-child {
+  text-align: center;
+  padding: 20px;
+}
+
+.esteemade-brand-child h3 {
+  font-size: 30px;
+  line-height: 32px;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.icon-wrapper {
+  background-image: url("./Img/home_agro_sep.png");
+  height: 3px;
+  margin: 0 auto;
+  max-width: 80%;
+  background-repeat: repeat-x;
+}
+
+/* Slider Section */
+.esteemade-slider {
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.brand-slider {
+  position: relative;
+  padding: 40px 20px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.slider-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+.slider-controls button {
+  background: #ff0055;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  margin-left: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.slider-window {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 25%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  transition: filter 0.3s;
+}
+
+.slide img:hover {
+  filter: grayscale(0);
+}
+
+/* Dots */
+.dots {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: #ff0055;
+}
+
+/* Suppliers Section */
+.text-content {
+  padding: 0px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #840000;
+  height: 164px;
+  gap: 20px;
+}
+
+.text-content h4 {
+  font-weight: 700;
+  color: white;
+  font-size: 24px;
+  margin: 0;
+}
+
+.second-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.custom-button button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: white;
+  color: rgb(137, 136, 136);
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.custom-button button:hover {
+  background-color: rgb(202, 196, 196);
+  transform: translateY(-2px);
+}
+
+.arrow-icon {
+  font-size: 20px;
+}
+
+/* Responsive Breakpoints */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .slide {
+    min-width: 50%;
+  }
+
+  .text-content {
+    padding: 20px;
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+  }
+
+  .text-content h4 {
+    font-size: 20px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 480px) {
+  .slide {
+    min-width: 100%;
+  }
+
+  .esteemade-brand-child h3 {
+    font-size: 22px;
+  }
+
+  .text-content {
+    padding: 20px;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .text-content h4 {
+    font-size: 18px;
+  }
+
+  .custom-button button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
