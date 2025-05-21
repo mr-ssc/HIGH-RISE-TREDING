@@ -21,24 +21,13 @@ const About = () => {
           </div>
         </div>
       </div>
-      <section className="comapny-overview">
-        <CompanyOverview />
-      </section>
-      <section className="company-info">
-        <CompanyInfo />
-      </section>
-      <section className="about-testimonials">
-        <AboutTestimonials />
-      </section>
-      <section className="CustomerSetisfaction">
-        <CustomerSetisfaction />
-      </section>
-      <section className="esteemade-brand-container">
-        <EsteemadeBrand />
-      </section>
-      <section className="inquire-container">
-        <InquirePage />
-      </section>
+      <CompanyOverview />
+      <CompanyInfo />
+      <AboutTestimonials />
+      <CustomerSetisfaction />
+      <EsteemadeBrand />
+      <InquirePage />
+
 
       <Footer />
     </>
