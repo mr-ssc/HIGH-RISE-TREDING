@@ -38,7 +38,9 @@ const InquirePage = () => {
               {item.value}
             </a>
           </p>
+          <a href="/Contact">
           <button className="inquire-btn">Inquire Now</button>
+          </a>
         </div>
       ))}
     </div>

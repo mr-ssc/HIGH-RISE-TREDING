@@ -43,7 +43,7 @@
 }
 
 .slider-controls button {
-  background: #ff0055;
+   background-color: #03142e;
   color: white;
   border: none;
   padding: 6px 10px;
@@ -98,7 +98,8 @@
 }
 
 .dot.active {
-  background: #ff0055;
+   background-color: #03142e;
+
 }
 
 /* Suppliers Section */
@@ -107,7 +108,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #840000;
+  background-color: #03142e;
   height: 164px;
   gap: 20px;
 }
@@ -143,8 +144,9 @@
 }
 
 .custom-button button:hover {
-  background-color: rgb(202, 196, 196);
+  background-color: rgb(0, 0, 0);
   transform: translateY(-2px);
+  color: #fff;
 }
 
 .arrow-icon {

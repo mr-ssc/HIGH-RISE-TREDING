@@ -32,7 +32,8 @@
 
 .content2 h3 {
   font-size: clamp(20px, 2vw, 26px);
-  color: #840000;
+  color: #03142e;
+
   margin-bottom: 15px;
   letter-spacing: 1px;
 }
@@ -51,9 +52,12 @@
     gap: 30px;
     align-items: center;
   }
+
   .CustomerSetisfaction2 {
-    flex-direction: column; /* Stack child vertically */
-    align-items: center; /* Center align */
+    flex-direction: column;
+    /* Stack child vertically */
+    align-items: center;
+    /* Center align */
   }
 
   .content2 {
@@ -65,8 +69,10 @@
 /* Mobile */
 @media (max-width: 480px) {
   .CustomerSetisfaction2 {
-    flex-direction: column; /* Stack child vertically */
-    align-items: center; /* Center align */
+    flex-direction: column;
+    /* Stack child vertically */
+    align-items: center;
+    /* Center align */
   }
 
   .CustomerSetisfaction2 {
@@ -85,6 +91,7 @@
     font-size: 14px;
   }
 }
+
 .CustomerSetisfaction2 {
   width: 100%;
   padding: 60px 5vw;
@@ -92,7 +99,8 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* Allow wrapping */
+  flex-wrap: wrap;
+  /* Allow wrapping */
 }
 
 .CustomerSetisfaction-child {
@@ -106,7 +114,8 @@
 }
 
 .content2 {
-  flex: 1 1 45%; /* flex-grow:1, flex-shrink:1, flex-basis:45% */
+  flex: 1 1 45%;
+  /* flex-grow:1, flex-shrink:1, flex-basis:45% */
   min-width: 280px;
   background: #fff;
   padding: 30px;
@@ -122,7 +131,8 @@
 
 .content2 h3 {
   font-size: clamp(20px, 2vw, 26px);
-  color: #840000;
+  color: #03142e;
+
   margin-bottom: 15px;
   letter-spacing: 1px;
 }
@@ -143,8 +153,10 @@
   }
 
   .content2 {
-    width: 100% !important; /* Force full width */
-    max-width: 600px; /* optional max width */
+    width: 100% !important;
+    /* Force full width */
+    max-width: 600px;
+    /* optional max width */
   }
 }
 
@@ -152,7 +164,8 @@
 @media (max-width: 480px) {
   .CustomerSetisfaction2 {
     padding: 30px 16px;
-    flex-direction: column; /* stack if needed */
+    flex-direction: column;
+    /* stack if needed */
     align-items: center;
   }
 
@@ -169,4 +182,3 @@
     font-size: 14px;
   }
 }
-
