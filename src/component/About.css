@@ -1,6 +1,6 @@
 /* Base Styles */
 .about-container {
-  max-width: 1400px; 
+  max-width: fit-content;
  
 
 }
