@@ -18,6 +18,7 @@ import EsteemadeBrand from "./component/EsteemadeBrand"
 import InquirePage from "./component/InquirePage"
 import Cart from './component/Cart'
 import HeroSection from './component/HeroSection'
+import Social from './component/Social'
 
 
 
@@ -47,6 +48,7 @@ function App() {
         <Route path='/InquirePage' element={<InquirePage />}></Route>
         <Route path='/Cart' element={<Cart />}></Route>
         <Route path='/HeroSection' element={<HeroSection/>}></Route>
+        <Route path='/Social' element={<Social/>}></Route>
 
 
 
