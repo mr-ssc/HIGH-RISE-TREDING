@@ -1,200 +1,229 @@
-/* General Layout */
-.esteemade-brand-child {
-  text-align: center;
-  padding: 20px;
+/* About-EsteemadeBrand.css */
+
+.About-esteemade-brand {
+  width: 100%;
+  padding: 2rem 0;
+  background-color: #f8f9fa;
 }
 
-.esteemade-brand-child h3 {
-  font-size: 30px;
-  line-height: 32px;
-  font-weight: 500;
-  margin-bottom: 25px;
-}
-
-.icon-wrapper {
-  background-image: url("./Img/home_agro_sep.png");
-  height: 3px;
+.About-esteemade-brand-child {
+  max-width: 1200px;
   margin: 0 auto;
-  max-width: 80%;
-  background-repeat: repeat-x;
+  padding: 0 20px;
 }
 
-/* Slider Section */
-.esteemade-slider {
-  margin-top: 30px;
-  padding: 20px;
+.About-esteemade-header {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-.brand-slider {
+.About-esteemade-header h3 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
   position: relative;
-  padding: 40px 20px 20px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  max-width: 100%;
+  display: inline-block;
 }
 
-.slider-controls {
+.About-esteemade-header h3::after {
+  content: '';
   position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 10;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #0066cc;
 }
 
-.slider-controls button {
-   background-color: #03142e;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  margin-left: 5px;
-  border-radius: 6px;
-  cursor: pointer;
+.About-brand-slider {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
-.slider-window {
+.About-slider-window {
   overflow: hidden;
   width: 100%;
+  margin: 0 auto;
 }
 
-.slider-track {
+.About-slider-track {
   display: flex;
+  width: calc(100% * 15 / 14);
   transition: transform 0.5s ease;
 }
 
-.slide {
-  min-width: 25%;
-  padding: 10px;
+.About-slide {
+  min-width: calc(100% / 5);
+  padding: 0 10px;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.slide img {
-  width: 100%;
-  height: auto;
+.About-slide img {
+  max-width: 100%;
+  max-height: 120px;
   object-fit: contain;
-  filter: grayscale(1);
-  transition: filter 0.3s;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-.slide img:hover {
-  filter: grayscale(0);
+.About-slide img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
 }
 
-/* Dots */
-.dots {
-  margin-top: 20px;
+.About-slider-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
   display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  background: #bbb;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.dot.active {
-   background-color: #03142e;
-
-}
-
-/* Suppliers Section */
-.text-content {
-  padding: 0px 80px;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  background-color: #03142e;
-  height: 164px;
-  gap: 20px;
+  z-index: 10;
 }
 
-.text-content h4 {
-  font-weight: 700;
+.About-slider-controls button {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0066cc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.About-slider-controls button:hover {
+  background-color: #0066cc;
   color: white;
-  font-size: 24px;
-  margin: 0;
+  transform: scale(1.1);
 }
 
-.second-box {
+.About-slider-actions {
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 20px 0;
+  margin-top: 15px;
 }
 
-.custom-button button {
+.About-auto-play-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #0066cc;
+  padding: 5px 15px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.About-auto-play-toggle:hover {
+  background-color: rgba(0, 102, 204, 0.1);
+}
+
+.About-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.About-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.About-dot.About-active {
+  background-color: #03142e;
+  transform: scale(1.2);
+}
+
+.About-suppliers {
+  margin-top: 3rem;
+  background-color: #03142e;
+
+  color: white;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.About-text-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.About-first-box h4 {
+  font-size: 1.5rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.About-custom-button button {
+  background-color: white;
+  color: #0066cc;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: bold;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  background-color: white;
-  color: rgb(137, 136, 136);
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 500;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
-.custom-button button:hover {
-  background-color: rgb(0, 0, 0);
+.About-custom-button button:hover {
+  background-color: #f0f0f0;
   transform: translateY(-2px);
-  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.arrow-icon {
-  font-size: 20px;
+.About-arrow-icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
 }
 
-/* Responsive Breakpoints */
+/* Responsive Design */
+@media (max-width: 992px) {
+  .About-slide {
+    min-width: calc(100% / 4);
+  }
 
-/* Tablets */
+  .About-slider-track {
+    width: calc(100% * 15 / 4);
+  }
+}
+
 @media (max-width: 768px) {
-  .slide {
-    min-width: 50%;
+  .About-slide {
+    min-width: calc(100% / 3);
   }
 
-  .text-content {
-    padding: 20px;
-    flex-direction: column;
-    height: auto;
-    text-align: center;
-  }
-
-  .text-content h4 {
-    font-size: 20px;
+  .About-slider-track {
+    width: calc(100% * 15 / 3);
   }
 }
 
-/* Mobiles */
-@media (max-width: 480px) {
-  .slide {
-    min-width: 100%;
+@media (max-width: 576px) {
+  .About-slide {
+    min-width: calc(100% / 2);
   }
 
-  .esteemade-brand-child h3 {
-    font-size: 22px;
-  }
-
-  .text-content {
-    padding: 20px;
-    flex-direction: column;
-    height: auto;
-  }
-
-  .text-content h4 {
-    font-size: 18px;
-  }
-
-  .custom-button button {
-    font-size: 14px;
-    padding: 8px 16px;
+  .About-slider-track {
+    width: calc(100% * 15 / 2);
   }
 }
