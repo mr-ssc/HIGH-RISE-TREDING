@@ -3,7 +3,7 @@
   padding: 2rem;
   min-height: calc(100vh - 120px); /* Adjust based on your header/footer height */
   background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
-  padding-top: 12%;
+  /* padding-top: 12%; */
 }
 
 .section-title {
