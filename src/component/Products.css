@@ -1,14 +1,14 @@
 /* Products.css */
 
 /* Product Page Container */
-.product-page {
+.Product-product-page {
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 /* Product Grid */
-.product-grid {
+.Product-product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
@@ -16,13 +16,13 @@
 }
 
 /* See More Button */
-.see-more-container {
+.Product-see-more-container {
   display: flex;
   justify-content: center;
   margin: 2rem 0;
 }
 
-.see-more-btn {
+.Product-see-more-btn {
   padding: 0.8rem 2rem;
   background-color: #2c3e50;
   color: white;
@@ -33,7 +33,7 @@
   transition: all 0.3s ease;
 }
 
-.see-more-btn:hover {
+.Product-see-more-btn:hover {
   background-color: #1a252f;
   transform: translateY(-2px);
 }
@@ -50,25 +50,25 @@
   }
 }
 
-.product-grid > * {
+.Product-product-grid > * {
   animation: fadeIn 0.5s ease forwards;
 }
 
 /* Responsive Design */
 @media (max-width: 900px) {
-  .product-grid {
+  .Product-product-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
-  .product-grid {
+  .Product-product-grid {
     grid-template-columns: 1fr;
   }
 }
 
 /* About Container */
-.about-container {
+.Product-about-container {
   background-color: #f8f9fa;
   display: flex;
   align-items: center;
@@ -77,46 +77,46 @@
   margin-bottom: 2rem;
 }
 
-.pro-title {
+.Product-pro-title {
   font-size: 2.5rem;
   color: #2c3e50;
   margin-bottom: 1rem;
 }
 
 /* If you need to style the Cart component, add these: */
-.cart-item {
+.Product-cart-item {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cart-item:hover {
+.Product-cart-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.cart-item img {
+.Product-cart-item img {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
 
-.cart-item-content {
+.Product-cart-item-content {
   padding: 1rem;
 }
 
-.cart-item h3 {
+.Product-cart-item h3 {
   margin-top: 0;
   color: #2c3e50;
 }
 
-.cart-item p {
+.Product-cart-item p {
   color: #666;
   margin-bottom: 1rem;
 }
 
-.cart-item .price {
+.Product-cart-item .price {
   font-weight: bold;
   color: #e74c3c;
   font-size: 1.2rem;

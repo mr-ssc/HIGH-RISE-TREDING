@@ -23,6 +23,9 @@ const Footer = () => {
                 <a href="/">Home</a>
               </li>
               <li>
+                <a href="/About">About Us</a>
+              </li>
+              <li>
                 <a href="/products">All Products</a>
               </li>
               <li>
@@ -38,34 +41,34 @@ const Footer = () => {
             <h4>Product Categories</h4>
             <ul>
               <li>
-                <a href="/mechanical-products">Mechanical Products</a>
+                <a href="#">Mechanical Products</a>
               </li>
               <li>
-                <a href="/macoga-expansion-joints">Macoga - Expansion Joints</a>
+                <a href="#">Macoga - Expansion Joints</a>
               </li>
               <li>
-                <a href="/electrical-products">Electrical Products</a>
+                <a href="#">Electrical Products</a>
               </li>
               <li>
-                <a href="/oil-gas-products">Oil & Gas Products</a>
+                <a href="#">Oil & Gas Products</a>
               </li>
               <li>
-                <a href="/tubefit">Tubefit</a>
+                <a href="#">Tubefit</a>
               </li>
               <li>
-                <a href="/valve-products">Valve Products</a>
+                <a href="#">Valve Products</a>
               </li>
               <li>
-                <a href="/plumbing-materials">Plumbing Materials</a>
+                <a href="#">Plumbing Materials</a>
               </li>
               <li>
-                <a href="/safety-items">Safety Items</a>
+                <a href="#">Safety Items</a>
               </li>
               <li>
-                <a href="/sanitary-ware">Sanitary Ware</a>
+                <a href="#">Sanitary Ware</a>
               </li>
               <li>
-                <a href="/plywood-items">Plywood Items</a>
+                <a href="#">Plywood Items</a>
               </li>
             </ul>
           </div>

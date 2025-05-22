@@ -117,15 +117,15 @@ const Products = () => {
   return (
     <>
     <Navbar/>
-      <div className="about-container" style={{ height: "200px" }}>
-        <div className="main-container">
-          <div className="column-one">
-            <h1 className="title">Our Products</h1>
+      <div className="Product-about-container" style={{ height: "200px" }}>
+        <div className="Product-main-container">
+          <div className="Product-column-one">
+            <h1 className="Product-title">Our Products</h1>
           </div>
         </div>
       </div>
-      <div className="product-page">
-        <div className="product-grid">
+      <div className="Product-product-page">
+        <div className="Product-product-grid">
           {products.slice(0, visibleProducts).map((item) => (
             <Cart
               key={item.id}
@@ -137,8 +137,8 @@ const Products = () => {
           ))}
         </div>
         {visibleProducts < products.length && (
-          <div className="see-more-container">
-            <button onClick={loadMore} className="see-more-btn">
+          <div className="Product-see-more-container">
+            <button onClick={loadMore} className="Product-see-more-btn">
               See More
             </button>
           </div>
