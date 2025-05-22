@@ -20,6 +20,7 @@ import Cart from './component/Cart'
 import HeroSection from './component/HeroSection'
 import Social from './component/Social'
 import New_Pro from './component/New_Pro'
+import New_Info from './component/New_Info'
 
 
 
@@ -51,6 +52,7 @@ function App() {
         <Route path='/HeroSection' element={<HeroSection />}></Route>
         <Route path='/Social' element={<Social />}></Route>
         <Route path='/New_Pro' element={<New_Pro />}></Route>
+        <Route path='/New_Info' element={<New_Info/>}></Route>
 
 
 

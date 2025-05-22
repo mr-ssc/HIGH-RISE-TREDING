@@ -5,6 +5,7 @@ import InquirePage from "./InquirePage"
 import HeroSection from './HeroSection'
 import Social from './Social'
 import New_Pro from './New_Pro'
+import New_Info from './New_Info'
 
 
 
@@ -16,6 +17,7 @@ const Home = () => {
       <HeroSection />
       <Social />
       <New_Pro />
+      <New_Info/>
 
 
 
