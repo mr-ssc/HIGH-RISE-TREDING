@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import InquirePage from "./InquirePage"
+import HeroSection from './HeroSection'
 
 
 
@@ -9,14 +10,14 @@ const Home = () => {
   return (
     <>
 
-     <Navbar/>   
- 
-    
+      <Navbar />
+      <HeroSection />
 
-  
-    <InquirePage/>
-     <Footer/>
-            </>
+
+
+      <InquirePage />
+      <Footer />
+    </>
   )
 }
 

@@ -17,6 +17,7 @@ import CustomerSetisfaction from "./component/CustomerSetisfaction"
 import EsteemadeBrand from "./component/EsteemadeBrand"
 import InquirePage from "./component/InquirePage"
 import Cart from './component/Cart'
+import HeroSection from './component/HeroSection'
 
 
 
@@ -45,6 +46,7 @@ function App() {
         <Route path='/EsteemadeBrand' element={<EsteemadeBrand />}></Route>
         <Route path='/InquirePage' element={<InquirePage />}></Route>
         <Route path='/Cart' element={<Cart />}></Route>
+        <Route path='/HeroSection' element={<HeroSection/>}></Route>
 
 
 
