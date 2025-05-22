@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import InquirePage from "./InquirePage"
-import Cart from './Cart'
+import HeroImage from './HeroImage'
 
 
 const Home = () => {
@@ -10,9 +10,10 @@ const Home = () => {
     <>
 
      <Navbar/>   
+     <HeroImage/>
     
 
-    <Cart/>
+  
     <InquirePage/>
      <Footer/>
             </>
