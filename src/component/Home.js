@@ -4,6 +4,7 @@ import Footer from './Footer'
 import InquirePage from "./InquirePage"
 import HeroSection from './HeroSection'
 import Social from './Social'
+import New_Pro from './New_Pro'
 
 
 
@@ -13,7 +14,8 @@ const Home = () => {
 
       <Navbar />
       <HeroSection />
-      <Social/>
+      <Social />
+      <New_Pro />
 
 
 
