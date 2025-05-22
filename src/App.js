@@ -16,6 +16,8 @@ import AboutTestimonials from "./component/AboutTestimonials"
 import CustomerSetisfaction from "./component/CustomerSetisfaction"
 import EsteemadeBrand from "./component/EsteemadeBrand"
 import InquirePage from "./component/InquirePage"
+import Cart from './component/Cart'
+
 
 
 
@@ -29,23 +31,24 @@ function App() {
 
         <Route path='/' element={<Home />}></Route>
         <Route path='/Navbar' element={<Navbar />}></Route>
-        <Route path='Slider' element={<Slider/>}></Route>
-        <Route path='/Contact' element={<Contact/>}></Route>
-        <Route path='/Download' element={<Download/>}></Route>
-        <Route path='/About' element={<About/>}></Route>
-        <Route path='/Brand' element={<Brand/>}></Route>
-        <Route path='/Products' element={<Products/>}></Route>
-        <Route path='/Industries' element={<Industries/>}></Route>
-        <Route path='/CompanyOverview' element={<CompanyOverview/>}></Route>
-        <Route path='/CompanyInfo' element={<CompanyInfo/>}></Route>
-        <Route path='/AboutTestimonials' element={<AboutTestimonials/>}></Route>
-        <Route path='/CustomerSetisfaction' element={<CustomerSetisfaction/>}></Route>
-        <Route path='/EsteemadeBrand' element={<EsteemadeBrand/>}></Route>
-        <Route path='/InquirePage' element={<InquirePage/>}></Route>
+        <Route path='Slider' element={<Slider />}></Route>
+        <Route path='/Contact' element={<Contact />}></Route>
+        <Route path='/Download' element={<Download />}></Route>
+        <Route path='/About' element={<About />}></Route>
+        <Route path='/Brand' element={<Brand />}></Route>
+        <Route path='/Products' element={<Products />}></Route>
+        <Route path='/Industries' element={<Industries />}></Route>
+        <Route path='/CompanyOverview' element={<CompanyOverview />}></Route>
+        <Route path='/CompanyInfo' element={<CompanyInfo />}></Route>
+        <Route path='/AboutTestimonials' element={<AboutTestimonials />}></Route>
+        <Route path='/CustomerSetisfaction' element={<CustomerSetisfaction />}></Route>
+        <Route path='/EsteemadeBrand' element={<EsteemadeBrand />}></Route>
+        <Route path='/InquirePage' element={<InquirePage />}></Route>
+        <Route path='/Cart' element={<Cart />}></Route>
 
 
-        
-        <Route path='/Footer' element={<Footer/>}></Route>
+
+        <Route path='/Footer' element={<Footer />}></Route>
 
 
       </Routes>
